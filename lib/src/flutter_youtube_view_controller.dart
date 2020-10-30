@@ -18,9 +18,8 @@ class FlutterYoutubeViewController {
     await _channel.invokeMethod('initialization');
   }
 
-  Future<void> loadOrCueVideo(String videoId,
-      double startSeconds,
-      { bool autoPlay = true }) async {
+  Future<void> loadOrCueVideo(String videoId, double startSeconds,
+      {bool autoPlay = true}) async {
     assert(videoId != null);
     var params = <String, dynamic>{
       "videoId": videoId,
@@ -43,22 +42,23 @@ class FlutterYoutubeViewController {
   }
 
   /// Change player PlaybackRate based on [PlaybackRate] or [rateValue]. If both params, [PlaybackRate] will be used.
-  Future<void> setPlaybackRate({PlaybackRate rate, double rateValue = 1.0}) async {
+  Future<void> setPlaybackRate(
+      {PlaybackRate rate, double rateValue = 1.0}) async {
     assert(rate != null || rateValue != null);
     switch (rate) {
-      case(PlaybackRate.RATE_0_25):
+      case (PlaybackRate.RATE_0_25):
         rateValue = 0.25;
         break;
-      case(PlaybackRate.RATE_0_5):
+      case (PlaybackRate.RATE_0_5):
         rateValue = 0.5;
         break;
-      case(PlaybackRate.RATE_1):
+      case (PlaybackRate.RATE_1):
         rateValue = 1;
         break;
-      case(PlaybackRate.RATE_1_5):
+      case (PlaybackRate.RATE_1_5):
         rateValue = 1.5;
         break;
-      case(PlaybackRate.RATE_2):
+      case (PlaybackRate.RATE_2):
         rateValue = 2.0;
         break;
       default:
@@ -93,7 +93,7 @@ class FlutterYoutubeViewController {
         _listener.onStateChange(call.arguments as String);
         break;
       case 'onError':
-        _listener.onError(call.arguments as String);
+        _listener.onErrorPlayer(call.arguments as String);
         break;
       case 'onVideoDuration':
         _listener.onVideoDuration(call.arguments as double);

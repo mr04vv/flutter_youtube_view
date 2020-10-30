@@ -3,7 +3,7 @@ abstract class YouTubePlayerListener {
 
   void onStateChange(String state);
 
-  void onError(String error);
+  void onErrorPlayer(String error);
 
   void onVideoDuration(double duration);
 

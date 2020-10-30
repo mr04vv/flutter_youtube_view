@@ -19,7 +19,7 @@ class _MyAppState extends State<YoutubeDefaultWidget>
   }
 
   @override
-  void onError(String error) {
+  void onErrorPlayer(String error) {
     print("onError error = $error");
   }
 
